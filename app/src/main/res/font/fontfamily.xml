@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/summerdreams" />
+    <font
+        android:fontStyle="italic"
+        android:fontWeight="400"
+        android:font="@font/freessella" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/bluedenimdemoregular" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/melodisty" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/fastrush" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/brighttropical" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/bloomingsunny" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/medyla" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/whitescratches" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/perfectcoupledemoregular" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/manhattanregular" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/amillova" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/peachyday" />
+</font-family>

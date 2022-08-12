@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#efebe8"
+    tools:context=".RegisterFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/peachyday"
+            android:text="@string/signup_title"
+            android:textAlignment="center"
+            android:textColor="#7b356d"
+            android:textSize="60sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#7b356d"
+            android:fontFamily="@font/peachyday"
+            android:text="@string/signup_form_email"
+            android:textSize="40sp" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:textColor="#7b356d"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#7b356d"
+            android:fontFamily="@font/peachyday"
+            android:text="@string/signup_form_username"
+            android:textSize="40sp" />
+
+        <EditText
+            android:id="@+id/usernameEditText"
+            android:layout_width="match_parent"
+            android:textColor="#7b356d"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/peachyday"
+            android:textColor="#7b356d"
+            android:text="@string/signup_form_password"
+            android:textSize="40sp" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#7b356d"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/peachyday"
+            android:textColor="#7b356d"
+            android:text="@string/signup_form_retype_password"
+            android:textSize="40sp" />
+
+        <EditText
+            android:id="@+id/retypepasswordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#7b356d"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/activity_main_loginButton"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/peachyday"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_form_button"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
