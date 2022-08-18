@@ -8,19 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.example.finalproject.databinding.FragmentRegister2Binding
 import com.google.firebase.auth.FirebaseAuth
-import com.example.finalproject.databinding.FragmentSecondBinding
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
-class SecondFragment : Fragment() {
 
-    private var _binding: FragmentSecondBinding? = null
+class RegisterFragment : Fragment() {
+
+    private var _binding: FragmentRegister2Binding? = null
     private lateinit var firebaseAuth: FirebaseAuth
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -28,7 +23,7 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        _binding = FragmentRegister2Binding.inflate(inflater, container, false)
         return binding.root
 
 
@@ -40,36 +35,32 @@ class SecondFragment : Fragment() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        binding.admin.setOnClickListener {
-            findNavController().navigate(R.id.action_userlogingFragment_to_adminloginFragment)
-        }
 
-
-
-        binding.loginButton.setOnClickListener {
-
-
+        binding.regiserButton.setOnClickListener {
             val email = binding.emailEditText.text.toString()
             val pass = binding.passwordEditText.text.toString()
+            val confirmPass = binding.retypepasswordEditText.text.toString()
 
-            if (email.isNotEmpty() && pass.isNotEmpty()) {
+            if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
+                if (pass == confirmPass) {
 
-                firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
-                    if (it.isSuccessful) {
+                    firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            findNavController().navigate(R.id.action_RegisterFragment_to_SecondFragment)
 
-                        findNavController().navigate(R.id.action_SecondFragment_to_ListFragment)
+                        } else {
+                            Toast.makeText(requireContext(), it.exception.toString(), Toast.LENGTH_SHORT).show()
 
-                    } else {
-                        Toast.makeText(requireContext(), it.exception.toString(), Toast.LENGTH_SHORT).show()
-
+                        }
                     }
+                } else {
+                    Toast.makeText(requireContext(), "Password is not matching", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Toast.makeText(requireContext(), "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
 
             }
         }
-
     }
 
     override fun onDestroyView() {

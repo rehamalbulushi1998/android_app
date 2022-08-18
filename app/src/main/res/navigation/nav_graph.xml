@@ -22,6 +22,20 @@
         android:id="@+id/MainFragment"
         android:name="com.example.finalproject.MainFragment"
         tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_RegisterFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_RegisterFragment"
+            app:destination="@id/RegisterFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_ListFragment"
+            app:destination="@id/ListFragment" />
+        <action
+            android:id="@+id/action_userlogingFragment_to_adminloginFragment"
+            app:destination="@id/AdminLoginFragment" />
+
+
 
 
     </fragment>
@@ -40,22 +54,63 @@
         <action
             android:id="@+id/action_SecondFragment_to_ListFragment"
             app:destination="@id/ListFragment" />
+        <action
+            android:id="@+id/action_userlogingFragment_to_adminloginFragment"
+            app:destination="@id/AdminLoginFragment" />
+
+
     </fragment>
     <fragment
         android:id="@+id/RegisterFragment"
         android:name="com.example.finalproject.RegisterFragment"
         android:label="@string/register_fragment_label"
-        tools:layout="@layout/fragment_register">
+        tools:layout="@layout/fragment_register2">
 
         <action
-            android:id="@+id/action_SecondFragment_to_RegisterFragment"
-            app:destination="@id/RegisterFragment" />
+            android:id="@+id/action_RegisterFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
     </fragment>
     <fragment
         android:id="@+id/ListFragment"
         android:name="com.example.finalproject.ListFragment"
         android:label="@string/list_fragment_label"
-        tools:layout="@layout/fragment_list">
+        tools:layout="@layout/fragment_list2">
 
+        <action
+            android:id="@+id/action_ListFragment_to_WritingFragment"
+            app:destination="@id/WritingFragmet" />
+        <action
+            android:id="@+id/action_ListFragment_to_ReadingFragment"
+            app:destination="@id/ReadingFragmet" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/WritingFragmet"
+        android:name="com.example.finalproject.WritingFragment"
+        android:label="writing Fragment"
+        tools:layout="@layout/fragment_writing2">
+    </fragment>
+
+    <fragment
+        android:id="@+id/ReadingFragmet"
+        android:name="com.example.finalproject.ReadingFragment"
+        android:label="reading Fragment"
+        tools:layout="@layout/fragment_reading2">
+    </fragment>
+    <fragment
+        android:id="@+id/AdminLoginFragment"
+        android:name="com.example.finalproject.admin_loginFragment"
+        android:label="Admin login Fragment"
+        tools:layout="@layout/fragment_admin_login">
+
+        <action
+            android:id="@+id/action_adminloginFragment_to_adminregisterFragment"
+            app:destination="@id/AdminaRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/AdminaRegisterFragment"
+        android:name="com.example.finalproject.Admin_registerFragment"
+        android:label="Admin Register Fragment"
+        tools:layout="@layout/fragment_admin_register">
     </fragment>
 </navigation>
