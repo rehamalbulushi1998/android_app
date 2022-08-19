@@ -61,6 +61,17 @@
         android:gravity="center"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/qoutespage"
+            android:fontFamily="@font/reallyfree"
+            android:text="looking for insperation?"
+            android:textAlignment="center"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#7b356d"
+            android:textSize="35sp" />
+
 
         <ScrollView
             android:id="@+id/scrollView"

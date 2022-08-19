@@ -82,6 +82,9 @@
         <action
             android:id="@+id/action_ListFragment_to_ReadingFragment"
             app:destination="@id/ReadingFragmet" />
+        <action
+            android:id="@+id/action_ListFragment_to_MainActivity2"
+            app:destination="@id/mainactivity2" />
 
     </fragment>
     <fragment
@@ -113,4 +116,12 @@
         android:label="Admin Register Fragment"
         tools:layout="@layout/fragment_admin_register">
     </fragment>
+
+    <activity
+        android:id="@+id/mainactivity2"
+        android:name="com.example.finalproject.MainActivity2"
+        android:label="MainActivity2"
+        tools:layout="@layout/activity_main2">
+    </activity>
+
 </navigation>

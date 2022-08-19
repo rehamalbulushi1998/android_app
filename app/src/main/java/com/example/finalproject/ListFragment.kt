@@ -46,6 +46,9 @@ class ListFragment : Fragment() {
             binding.dairytitle.setOnClickListener {
                 findNavController().navigate(R.id.action_ListFragment_to_ReadingFragment)
             }
+            binding.qoutespage.setOnClickListener {
+                findNavController().navigate(R.id.action_ListFragment_to_MainActivity2)
+            }
 
 
         }
