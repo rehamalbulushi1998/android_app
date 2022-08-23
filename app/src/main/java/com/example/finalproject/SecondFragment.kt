@@ -40,9 +40,7 @@ class SecondFragment : Fragment() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        binding.admin.setOnClickListener {
-            findNavController().navigate(R.id.action_userlogingFragment_to_adminloginFragment)
-        }
+
 
 
 

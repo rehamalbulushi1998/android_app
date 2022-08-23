@@ -50,6 +50,8 @@
     <!-- Error messages -->
     <string name="error_fragment_message">An error occurred</string>
     <string name="dismiss_error">Dismiss</string>
+    <string name="title_activity_writing3">WritingActivity3</string>
+    <string name="title_activity_main3">MainActivity3</string>
 
 
 </resources>

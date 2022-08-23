@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -13,35 +14,32 @@
         app:cardBackgroundColor="@color/white"
         app:cardMaxElevation="12dp"
         app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="true"
-        >
+        app:cardUseCompatPadding="true">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/qoute"
+        android:id="@+id/qoutecontent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:fontFamily="@font/reallyfree"
         android:textAlignment="center"
-        android:text="it is a qoute"
         android:textColor="#7b356d"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="40sp" />
 
             <TextView
             android:id="@+id/qouteauthor"
-                android:textColor="#7b356d"
+            android:textColor="#7b356d"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:fontFamily="@font/reallyfree"
             android:textAlignment="center"
-            android:text="it is a qoute's author"
-            android:textSize="20sp" />
+            android:textSize="35sp" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

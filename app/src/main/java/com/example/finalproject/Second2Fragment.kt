@@ -6,14 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.finalproject.databinding.FragmentAdminLoginBinding
+import com.example.finalproject.databinding.FragmentSecond2Binding
 
+/**
+ * A simple [Fragment] subclass as the second destination in the navigation.
+ */
+class Second2Fragment : Fragment() {
 
-
-class admin_loginFragment : Fragment() {
-
-
-    private var _binding: FragmentAdminLoginBinding? = null
+    private var _binding: FragmentSecond2Binding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,7 +24,7 @@ class admin_loginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentAdminLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentSecond2Binding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -32,12 +32,9 @@ class admin_loginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.adminregister.setOnClickListener {
-            findNavController().navigate(R.id.action_adminloginFragment_to_adminregisterFragment)
+        binding.buttonSecond.setOnClickListener {
+            findNavController().navigate(R.id.action_Second2Fragment_to_First2Fragment)
         }
-
-
-
     }
 
     override fun onDestroyView() {

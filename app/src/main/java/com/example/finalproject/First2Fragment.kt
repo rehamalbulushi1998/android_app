@@ -5,16 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.finalproject.databinding.FragmentAdminRegisterBinding
+import androidx.navigation.fragment.findNavController
+import com.example.finalproject.databinding.FragmentFirst2Binding
 
+/**
+ * A simple [Fragment] subclass as the default destination in the navigation.
+ */
+class First2Fragment : Fragment() {
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-
-class Admin_registerFragment : Fragment() {
-
-    private var _binding: FragmentAdminRegisterBinding? = null
+    private var _binding: FragmentFirst2Binding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,14 +24,13 @@ class Admin_registerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentAdminRegisterBinding.inflate(inflater, container, false)
+        _binding = FragmentFirst2Binding.inflate(inflater, container, false)
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
 
     }

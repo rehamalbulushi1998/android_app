@@ -4,71 +4,51 @@ import android.app.ProgressDialog
 import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.StaggeredGridLayoutManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.finalproject.ui.main.QuotesListAdapter
+import com.google.android.gms.common.api.Response
 import kotlinx.android.synthetic.main.activity_main2.*
+import retrofit2.Call
+import retrofit2.Callback
+import java.util.Calendar.getInstance
+import java.util.Currency.getInstance
 
 /**
  * Loads [MainFragment2].
  */
-class MainActivity2() : FragmentActivity(), Parcelable {
-    var dialog: ProgressDialog? = null
+class MainActivity2() : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                .replace(R.id.main_browse_fragment, MainFragment2())
-                .commitNow()
-        }
-        RequestManager(this@MainActivity2).GetAllQuotes(listener)
-        dialog = ProgressDialog(this@MainActivity2)
-        dialog?.setTitle("Loading...")
-        dialog?.show()
 
-    }
-    private val listener: QuotesResponseListner = object : QuotesResponseListner {
-        override fun didFetch(response: List<QuotesResponse>, message: String) {
-            dialog?.dismiss()
-            qouterecyclerview.setHasFixedSize(true)
-            qouterecyclerview.layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
-            val adapter = QuotesListAdapter(this@MainActivity2, response)
-            qouterecyclerview. adapter = adapter
-        }
-
-        override fun didError(message: String) {
-            dialog?.dismiss()
-            Toast.makeText(this@MainActivity2, message, Toast.LENGTH_LONG).show()
-
+        rv_quotes_list.layoutManager = LinearLayoutManager(this)
+        rv_quotes_list.setHasFixedSize(true)
+        getMovieData { quotes : List<Quote> ->
+            rv_quotes_list.adapter = QuotesListAdapter(quotes)
         }
 
     }
 
-    constructor(parcel: Parcel) : this() {
+    private fun getMovieData(callback: (List<Quote>) -> Unit){
+        val apiService = QuoteApiService.getInstance().create(QuoteApiInterface::class.java)
+        apiService.getQuoteList().enqueue(object : Callback<QuotesResponse> {
+            override fun onFailure(call: Call<QuotesResponse>, t: Throwable) {
 
+            }
+
+
+            override fun onResponse(
+                call: Call<QuotesResponse>,
+                response: retrofit2.Response<QuotesResponse>
+            ) {
+                return callback(response.body()!!.quotes)
+            }
+
+        })
     }
-
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-
-    }
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<MainActivity2> {
-        override fun createFromParcel(parcel: Parcel): MainActivity2 {
-            return MainActivity2(parcel)
-        }
-
-        override fun newArray(size: Int): Array<MainActivity2?> {
-            return arrayOfNulls(size)
-        }
-    }
-
-
 }

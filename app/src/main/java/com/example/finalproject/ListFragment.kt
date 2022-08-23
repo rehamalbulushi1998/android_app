@@ -41,7 +41,7 @@ class ListFragment : Fragment() {
             super.onViewCreated(view, savedInstanceState)
 
             binding.toolbarbutton.setOnClickListener {
-                findNavController().navigate(R.id.action_ListFragment_to_WritingFragment)
+                findNavController().navigate(R.id.action_ListFragment_to_WritingActivity)
             }
             binding.dairytitle.setOnClickListener {
                 findNavController().navigate(R.id.action_ListFragment_to_ReadingFragment)

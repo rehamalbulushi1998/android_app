@@ -1,45 +1,41 @@
 package com.example.finalproject.ui.main
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewParent
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.finalproject.MainActivity2
+import com.example.finalproject.Quote
 import com.example.finalproject.QuotesResponse
 import com.example.finalproject.R
+import kotlinx.android.synthetic.main.list_quotes.view.*
 import kotlinx.coroutines.InternalCoroutinesApi
-import kotlinx.coroutines.NonDisposableHandle.parent
 
-class QuotesListAdapter(val context:Context, val list: List<QuotesResponse>)
-    : RecyclerView.Adapter<QoutesViewHolder> () {
-    @OptIn(InternalCoroutinesApi::class)
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QoutesViewHolder {
-        val layout = LayoutInflater.from(context).inflate(R.layout.list_quotes, parent, false)
-        return QoutesViewHolder(layout)
 
+
+class QuotesListAdapter(
+    private val quotes: List<Quote>
+) : RecyclerView.Adapter<QuotesListAdapter.QuoteViewHolder>(){
+
+    class QuoteViewHolder(view : View) : RecyclerView.ViewHolder(view){
+
+        fun bindQuote(quote: Quote){
+            itemView.qoutecontent.text = quote.content
+            itemView.qouteauthor.text = quote.author
+        }
     }
 
-    override fun onBindViewHolder(holder: QoutesViewHolder, position: Int) {
-        holder.qoute.text = list.get(position).content
-        holder.qouteauthor.text = list.get(position).author
-
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuoteViewHolder {
+        return QuoteViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.list_quotes, parent, false)
+        )
     }
 
-    override fun getItemCount(): Int {
-        return list.size
+    override fun getItemCount(): Int = quotes.size
+
+    override fun onBindViewHolder(holder: QuoteViewHolder, position: Int) {
+        holder.bindQuote(quotes.get(position))
     }
-
-
 }
-
-
-
-class QoutesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    var qouteauthor: TextView = itemView.findViewById(R.id.qouteauthor)
-    var qoute: TextView = itemView.findViewById(R.id.qoute)
-
-}
-
-
